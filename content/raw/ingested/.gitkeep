@@ -1,0 +1,4 @@
+# raw/ingested
+> Fonti già processate, spostate qui dall'AI dopo l'ingest.
+> Organizzate in sottocartelle per data: `ingested/YYYY-MM-DD/`
+> Non modificare questi file — sono archivio storico.
