@@ -1,0 +1,3 @@
+# raw/inbox
+> Metti qui le trascrizioni dei video o gli articoli in formato `.md` da ingestire.
+> L'AI li processerà con priorità alta durante il comando `ingest`.
