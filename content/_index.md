@@ -1,27 +1,60 @@
+# 🗺️ Indice Generale del Network
+
+> Aggiornato automaticamente tramite query Dataview.
+> **Ultimo aggiornamento**: 2026-06-23 — Ingest Piccoli Mondi (22 video) + consolidamento settori duplicati completato.
+
+Questo vault contiene il network completo di **Marcello Ascani** e dei suoi progetti editoriali (canale YouTube principale + Piccoli Mondi), mappato in persone, aziende e settori industriali.
+
+**Conteggio attuale (approssimativo):**
+- 👤 ~97 persone
+- 🏢 ~95 aziende  
+- 📂 ~61 settori (inclusi redirect)
+
 ---
-title: 🪴 Quartz 3.3
-enableToc: false
+
+## 👤 Tutte le Persone
+```dataview
+TABLE company AS "Azienda", sector AS "Settore", role AS "Ruolo"
+FROM "wiki/people"
+SORT file.name ASC
+```
+
 ---
 
-Host your second brain and [digital garden](https://jzhao.xyz/posts/networked-thought) for free. Quartz features
+## 🏢 Tutte le Aziende
+```dataview
+TABLE sector AS "Settore", key_people AS "Persone Chiave"
+FROM "wiki/companies"
+SORT file.name ASC
+```
 
-1. Extremely fast natural-language [[notes/search]]
-2. Customizable and hackable design based on [Hugo](https://gohugo.io/)
-3. Automatically generated backlinks, link previews, and local graph
-4. Built-in [[notes/CJK + Latex Support (测试) | CJK + Latex Support]] and [[notes/callouts | Admonition-style callouts]]
-5. Support for both Markdown Links and Wikilinks
+---
 
-Check out some of the [amazing gardens that community members](notes/showcase.md) have published with Quartz or read about [why I made Quartz](notes/philosophy.md) to begin with.
+## 🏭 Tutti i Settori
+```dataview
+LIST
+FROM "wiki/sectors"
+WHERE type = "sector"
+SORT file.name ASC
+```
 
-## Get Started
-> 📚 Step 1: [Setup your own digital garden using Quartz](notes/setup.md)
+---
 
-Returning user? Figure out how to [[notes/updating|update]] your existing Quartz garden.
+## 📹 Fonti Elaborate (Trascrizioni)
+```dataview
+LIST
+FROM "wiki/sources"
+SORT file.name ASC
+```
 
-If you prefer browsing the contents of this site through a list instead of a graph, you see a list of all [setup-related notes](/tags/setup).
+---
 
-### Troubleshooting
-- 🚧 [Troubleshooting and FAQ](notes/troubleshooting.md)
-- 🐛 [Submit an Issue](https://github.com/jackyzha0/quartz/issues)
-- 👀 [Discord Community](https://discord.gg/cRFFHYye7t)
+## 🏷️ Per tag
 
+### Solo persone da Piccoli Mondi
+```dataview
+LIST
+FROM "wiki/people"
+WHERE contains(tags, "piccolimondi")
+SORT file.name ASC
+```
